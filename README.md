@@ -1,5 +1,3 @@
-# Check
-
 ## Installation
 Run this commande in your Terminal
 ```bash
