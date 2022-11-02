@@ -1,3 +1,4 @@
-selenium
-nltk
 pandas
+sklearn
+pyperclip3
+numpy
