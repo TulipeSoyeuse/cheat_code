@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 print("running")
-df = pd.read_csv("./data/scrapping_solution.csv",index_col=0).dropna().reset_index(drop=True)
+df = pd.read_csv("~/.cheat_code_folder/script/data/scrapping_solution.csv",index_col=0).dropna().reset_index(drop=True)
 a_previous = pc.paste().decode("utf-8")
 
 while True:
