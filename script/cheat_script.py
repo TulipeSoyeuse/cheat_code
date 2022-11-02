@@ -19,5 +19,6 @@ while True:
         cos_sim_matrix = cosine_similarity(desc_matrix, desc_matrix[-1])[:-1]
         index = np.argmax(cos_sim_matrix)
         print("similarity :" + str(cos_sim_matrix[index]))
-        a_previous = a
-        pc.copy(df.loc[index,"solution"])
+        soluce = df.loc[index,"solution"]
+        pc.copy(soluce)
+        a_previous = soluce
