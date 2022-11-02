@@ -16,7 +16,8 @@ while True:
         array = np.append(np.array(df.description),a)
         vectorizer = TfidfVectorizer()
         desc_matrix = vectorizer.fit_transform(array)
-        index = np.argmax(cosine_similarity(desc_matrix, desc_matrix[-1])[:-1])
-        print("similarity :" + str(index))
+        cos_sim_matrix = cosine_similarity(desc_matrix, desc_matrix[-1])[:-1]
+        index = np.argmax(cos_sim_matrix)
+        print("similarity :" + str(cos_sim_matrix[index]))
         a_previous = a
         pc.copy(df.loc[index,"solution"])
