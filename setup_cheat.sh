@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "test"
+
 if [ ! -d ~/.cheat_code_folder ];  then
   mkdir ~/.cheat_code_folder
 fi
