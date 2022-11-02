@@ -1,7 +1,7 @@
 ## Installation
 Run this commande in your Terminal
 ```bash
-curl https://github.com/TulipeSoyeuse/cheat_code/blob/main/setup_cheat.sh | sh
+curl https://raw.github.com/TulipeSoyeuse/cheat_code/blob/main/setup_cheat.sh | sh
 ```
 And of course...
 ```bash
