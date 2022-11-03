@@ -20,5 +20,11 @@ while True:
         index = np.argmax(cos_sim_matrix)
         print("similarity :" + str(cos_sim_matrix[index]))
         soluce = df.loc[index,"solution"]
-        pc.copy(soluce)
-        a_previous = soluce
+        if np.max(cos_sim_matrix[index]) > 0.5 :
+            print(True)
+            pc.copy(soluce)
+            a_previous = soluce
+        else :
+            print("no match")
+            pc.copy("no match")
+            a_previous = "no match"

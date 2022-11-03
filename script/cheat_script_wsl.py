@@ -20,5 +20,11 @@ while True:
         index = np.argmax(cos_sim_matrix)
         print("similarity :" + str(cos_sim_matrix[index]))
         soluce = df.loc[index,"solution"]
-        subprocess.run(f"clip.exe {soluce}",shell=True)
-        a_previous = soluce
+        if np.max(cos_sim_matrix[index]) > 0.5 :
+            print(True)
+            subprocess.run(f"clip.exe {soluce}",shell=True)
+            a_previous = soluce
+        else :
+            print("no match")
+            subprocess.run("clip.exe 'no match'",shell=True)
+            a_previous = "no match"
