@@ -3,10 +3,42 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pyperclip3 as pc
 import numpy as np
 import pandas as pd
+import keyboard
+from pynput.keyboard import Key, Listener
+from threading import Lock
+
+lock = Lock()
+
 
 print("running")
-df = pd.read_csv("~/.cheat_code_folder/script/data/scrapping_solution.csv",index_col=0).dropna().reset_index(drop=True)
+df = pd.read_csv("script/data/scrapping_solution.csv",index_col=0).dropna().reset_index(drop=True)
 a_previous = pc.paste().decode("utf-8")
+paste_special=False
+value_paste=None
+
+
+def on_press(key):
+    global value_paste
+    global paste_special
+    print(value_paste)
+    print(paste_special)
+    if paste_special and key == Key.ctrl:
+        print("go")
+        lock.acquire()
+        keyboard.write(value_paste)
+        lock.release()
+        paste_special = False
+def on_release(key):
+    print('{0} release'.format(key))
+    if key == Key.esc:
+        # Stop listener
+        return False
+
+
+# Collect events until released
+
+listener = Listener(on_press=on_press, on_release=on_release)
+listener.start()
 
 while True:
 
@@ -24,7 +56,11 @@ while True:
             print(True)
             pc.copy(soluce)
             a_previous = soluce
+            paste_special = True
+            value_paste = soluce
         else :
             print("no match")
             pc.copy("no match")
+            paste_special = False
+            value_paste = None
             a_previous = "no match"
