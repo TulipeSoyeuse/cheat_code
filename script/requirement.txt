@@ -1,4 +1,8 @@
 pandas
-sklearn
 pyperclip3
 numpy
+selenium
+webdriver-manager
+keyboard
+pynput
+scikit-learn
