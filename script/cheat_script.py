@@ -8,8 +8,6 @@ import pyperclip3 as pc
 import numpy as np
 import pandas as pd
 import keyboard
-import subprocess
-import sys
 from pynput.keyboard import Key, Listener, Controller
 from threading import Lock
 import time
